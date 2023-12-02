@@ -6,14 +6,16 @@ const MealItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
   const cartCtx = useContext(CartContext);
 
+  //  ! This function is triggered when user click on "+Add" button in MealItemForm
   const addToCartHandler = (amount) => {
+    // ! passing menu item data to cart using cartContext addItem function
     cartCtx.addItem({
       id: props.id,
       name: props.name,
       amount: amount,
-      price: props.price
-     })
-  }
+      price: props.price,
+    });
+  };
 
   return (
     <li className={classes.meal}>
